@@ -1,23 +1,18 @@
-const pixel = document.querySelector("#pixel");
-const gridRow = document.querySelector(".grid-row");
-//let createPixel = document.createElement("div");
+const gridContainer = document.querySelector("#grid-container");
 
-//write a function which creates pixels
+function createGrid(pixelsPerRow) {
+    for (let i = 0; i < pixelsPerRow; i++ ) { 
+        //create a new empty div
+        const gridRow = document.createElement("div");
+        gridRow.classList.add("grid-row");
 
-
-function createGrid(pixelsPerSide) {
-   
-    for (let i = 0; i < pixelsPerSide; i++) {
-        createPixel();
+        for (let j = 0; j < pixelsPerRow; j++) {
+            const newPixel = document.createElement("div");
+            newPixel.classList.add("pixel");
+            gridRow.appendChild(newPixel);
+        }
+    gridContainer.appendChild(gridRow);
     }
-        
 }
 
-
-function createPixel() {
-    const createPixel = document.createElement("div");
-    createPixel.classList.add("pixel");
-    document.body.appendChild(createPixel);
-}
-
-createGrid(16);
+createGrid(20); 
