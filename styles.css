@@ -1,0 +1,25 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+#grid-container {
+    border: 2px solid black;
+    display: flex;
+    /*flex-direction: row;*/
+    align-items: center;
+    justify-content: center;
+}
+
+#grid-row {
+    display: flex;
+    flex-direction: row;
+    width: 100px;
+    background-color: red;
+}
+
+.pixel {
+    border: 2px solid black;
+    height: 40px;
+    width: 40px;
+}
