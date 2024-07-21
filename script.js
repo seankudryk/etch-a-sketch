@@ -2,7 +2,7 @@ const gridContainer = document.querySelector("#grid-container");
 const buttonContainer = document.querySelector("#button-container");
 const setGridButton = document.querySelector("#set-grid-button");
 const setGridInput = document.querySelector("#set-grid-input");
-let activeColor = "yellow";
+let activeColor = "teal";
 
 function createGrid(pixelsPerRow) {
     for (let i = 0; i < pixelsPerRow; i++ ) { 
@@ -30,6 +30,7 @@ setGridButton.addEventListener("click", () => {
     } 
     gridContainer.innerHTML = "";
     createGrid(setGridInput.value);
+    setGridInput.value = "";
 });
 
 gridContainer.addEventListener("mouseover", (e) => {

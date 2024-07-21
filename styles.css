@@ -1,10 +1,20 @@
+html {
+    height: 100%;
+}
+
 body {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    background: linear-gradient( to bottom right, #FDFCFB, #E2D1C3);
+    background-repeat: no-repeat;
     margin: 0;
     padding: 0;
+}
+
+#set-grid-container {
+    padding: 25px;
 }
 
 #grid-container {
@@ -14,7 +24,8 @@ body {
     height: 1000px;
     width: 1000px;
     align-items: center;
-    border: 2px solid black;
+    border: 10px solid black;
+    background-color: pink;
 }
 
 .grid-row {
@@ -22,14 +33,15 @@ body {
 }
 
 .pixel {
-    /* write formula later which divides the grid-container length by pixel count to get the % value for height and width that would fill the grid*/
 
 }
 
-.button-container {
+#button-container {
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
+    column-gap: 25px;
     padding: 25px;
+    width: 100%;
 }
