@@ -2,7 +2,6 @@ const gridContainer = document.querySelector("#grid-container");
 
 function createGrid(pixelsPerRow) {
     for (let i = 0; i < pixelsPerRow; i++ ) { 
-        //create a new empty div
         const gridRow = document.createElement("div");
         gridRow.classList.add("grid-row");
 
@@ -15,4 +14,17 @@ function createGrid(pixelsPerRow) {
     }
 }
 
-createGrid(20); 
+createGrid(16); 
+
+let pixel = document.querySelectorAll(".pixel");
+pixel = [...pixel];
+
+
+gridContainer.addEventListener("mouseover", (e) => {
+    let target = e.target;
+    if (pixel.indexOf(target) >= 0) {
+        target.style.backgroundColor = "yellow";
+    }
+})
+
+console.log(pixel);
