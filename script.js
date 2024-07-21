@@ -12,11 +12,14 @@ function createGrid(pixelsPerRow) {
         for (let j = 0; j < pixelsPerRow; j++) {
             const newPixel = document.createElement("div");
             newPixel.classList.add("pixel");
+            newPixel.style.width = `${1000 / pixelsPerRow}px`;
+            newPixel.style.height = `${1000 / pixelsPerRow}px`;
             gridRow.appendChild(newPixel);
         }
     gridContainer.appendChild(gridRow);
     }
 };
+
 
 setGridButton.addEventListener("click", () => {
     const numbersOnly = /[0-9]/gm;
