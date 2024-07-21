@@ -1,5 +1,7 @@
 const gridContainer = document.querySelector("#grid-container");
 const buttonContainer = document.querySelector("#button-container");
+const setGridButton = document.querySelector("#set-grid-button");
+const setGridInput = document.querySelector("#set-grid-input");
 let activeColor = "yellow";
 
 function createGrid(pixelsPerRow) {
@@ -16,22 +18,31 @@ function createGrid(pixelsPerRow) {
     }
 };
 
-createGrid(16); 
+setGridButton.addEventListener("click", () => {
+    const numbersOnly = /[0-9]/gm;
 
-let pixel = document.querySelectorAll(".pixel");
-pixel = [...pixel];
-
-buttonContainer.addEventListener("click", (e) => {
-    let target = e.target;
-    activeColor = target.textContent;
-    console.log(activeColor);
+    if (!setGridInput.value.match(numbersOnly)) {
+        setGridInput.value = "";
+        alert("You must enter a number");
+    } 
+    gridContainer.innerHTML = "";
+    createGrid(setGridInput.value);
 });
 
 gridContainer.addEventListener("mouseover", (e) => {
+    let pixelArray = document.querySelectorAll(".pixel");
+    pixelArray = [...pixelArray];
+
     let target = e.target;
-    if (pixel.indexOf(target) >= 0) {
+    if (pixelArray.indexOf(target) >= 0) {
         target.style.backgroundColor = activeColor;
     }
 });
 
-console.log(pixel);
+buttonContainer.addEventListener("click", (e) => {
+    let target = e.target;
+    activeColor = target.textContent;
+});
+
+
+

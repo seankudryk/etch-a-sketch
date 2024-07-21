@@ -1,4 +1,8 @@
 body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
     margin: 0;
     padding: 0;
 }
@@ -7,6 +11,8 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    height: 1000px;
+    width: 1000px;
     align-items: center;
     border: 2px solid black;
 }
@@ -18,8 +24,10 @@ body {
 
 .pixel {
     border: 2px solid black;
-    height: 40px;
-    width: 40px;
+    width: 20px;
+    height: 20px;
+    /* write formula later which divides the grid-container length by pixel count to get the % value for height and width that would fill the grid*/
+    
 }
 
 .button-container {
