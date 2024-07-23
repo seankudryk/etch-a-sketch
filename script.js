@@ -2,6 +2,7 @@ const gridContainer = document.querySelector("#grid-container");
 const buttonContainer = document.querySelector("#button-container");
 const setGridButton = document.querySelector("#set-grid-button");
 const setGridInput = document.querySelector("#set-grid-input");
+const colorSelector = document.querySelector("#color-selector");
 let activeColor = "teal";
 
 function createGrid(pixelsPerRow) {
@@ -22,15 +23,16 @@ function createGrid(pixelsPerRow) {
 
 
 setGridButton.addEventListener("click", () => {
-    const numbersOnly = /[0-9]/gm;
+    const numbersOnly = /[0-9]/;
 
     if (!setGridInput.value.match(numbersOnly)) {
         setGridInput.value = "";
         alert("You must enter a number");
-    } 
-    gridContainer.innerHTML = "";
-    createGrid(setGridInput.value);
-    setGridInput.value = "";
+    } else if (setGridInput.value.match(numbersOnly)) {
+        gridContainer.innerHTML = "";
+        createGrid(setGridInput.value);
+        setGridInput.value = "";
+    }
 });
 
 gridContainer.addEventListener("mouseover", (e) => {
@@ -47,6 +49,10 @@ buttonContainer.addEventListener("click", (e) => {
     let target = e.target;
     activeColor = target.textContent;
 });
+
+colorSelector.addEventListener("click", () => {
+    console.log(colorSelector.value);
+})
 
 
 

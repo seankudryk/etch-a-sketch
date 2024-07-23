@@ -34,7 +34,8 @@ body {
 }
 
 .pixel {
-
+    box-sizing: border-box;
+    border: 1px dotted rgb(199, 198, 198);
 }
 
 #button-container {
