@@ -10,16 +10,21 @@
     <body>
         <div id="main-container">
             <div id="options-container">
-                <div id="set-grid-container">
+                <div id="set-grid-container" class="option-element">
                     <input id="set-grid-input"></input>
                     <button id="set-grid-button">Set Grid</button>
                 </div>
-                <div id="color-selector-container">
-                    <label for="color-selector">Select color:</label>
+                <div id="color-selector-container" class="option-element">
+                    <label for="color-selector">Color:</label>
                     <input type="color" id="color-selector"/>
+                    <button id="palette-save">Save to Palette</button>
+                </div>
+                <div id="randomizer-container" class="option-element">
                     <button id="randomizer-button">Randomizer</button>
                 </div>
-                
+                <div id="eraser-container" class="option-element">
+                    <button id="eraser-button">Eraser</button>
+                </div>
             </div>
             <div id="grid-container">Please enter the dimensions of of your canvas above, then click the "Set Grid" button.
                 <p>For example: a value of "40" will create a grid of 40 pixels x 40 pixels. The canvas size will not change.</p>
