@@ -3,7 +3,9 @@ const buttonContainer = document.querySelector("#button-container");
 const setGridButton = document.querySelector("#set-grid-button");
 const setGridInput = document.querySelector("#set-grid-input");
 const colorSelector = document.querySelector("#color-selector");
+const randomizerButton = document.querySelector("#randomizer-button");
 let activeColor = "teal";
+let randomizerActive = false; //a boolean switch variable to check the status of the randomizer button
 
 function createGrid(pixelsPerRow) {
     for (let i = 0; i < pixelsPerRow; i++ ) { 
@@ -38,6 +40,7 @@ setGridButton.addEventListener("click", () => {
             setGridInput.value = "";
         }
     }
+    setGridInput.focus();
 });
 
 gridContainer.addEventListener("mouseover", (e) => {
@@ -52,7 +55,27 @@ gridContainer.addEventListener("mouseover", (e) => {
 
 colorSelector.addEventListener("input", () => {
     activeColor = colorSelector.value;
-})
+});
 
+function randomColorGenerator() {
+    let hue = Math.round(Math.random() * 360);
+    let saturation = Math.round(Math.random() * 100);
+    let lightness = Math.round(Math.random() * 100);
+    return `hsl(${hue}, ${saturation}%, ${lightness}%);`;
+}
 
+randomizerButton.addEventListener("click", () => {
+    if (randomizerActive === false) {
+        randomizerButton.style.backgroundColor = "green";
+        randomizerActive = true;
+    } else {
+        randomizerButton.style.backgroundColor = "#EFEFEF";
+        randomizerActive = false;
+    };
+    
+});
+
+setGridInput.focus();
+
+console.log(randomColorGenerator());
 
