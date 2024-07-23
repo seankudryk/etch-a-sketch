@@ -45,13 +45,15 @@ gridContainer.addEventListener("mouseover", (e) => {
     }
 });
 
+/*
 buttonContainer.addEventListener("click", (e) => {
     let target = e.target;
     activeColor = target.textContent;
 });
-
-colorSelector.addEventListener("click", () => {
-    console.log(colorSelector.value);
+  */
+ 
+colorSelector.addEventListener("input", () => {
+    activeColor = colorSelector.value;
 })
 
 
