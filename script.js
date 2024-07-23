@@ -24,14 +24,19 @@ function createGrid(pixelsPerRow) {
 
 setGridButton.addEventListener("click", () => {
     const numbersOnly = /[0-9]/;
-
-    if (!setGridInput.value.match(numbersOnly)) {
+    
+    if(setGridInput.value > 100) {
         setGridInput.value = "";
-        alert("You must enter a number");
-    } else if (setGridInput.value.match(numbersOnly)) {
-        gridContainer.innerHTML = "";
-        createGrid(setGridInput.value);
-        setGridInput.value = "";
+        alert("Side length must be less than 100 to stop your computer from exploding");
+    } else {
+        if (!setGridInput.value.match(numbersOnly)) {
+            setGridInput.value = "";
+            alert("You must enter a number");
+        } else if (setGridInput.value.match(numbersOnly)) {
+            gridContainer.innerHTML = "";
+            createGrid(setGridInput.value);
+            setGridInput.value = "";
+        }
     }
 });
 
@@ -45,13 +50,6 @@ gridContainer.addEventListener("mouseover", (e) => {
     }
 });
 
-/*
-buttonContainer.addEventListener("click", (e) => {
-    let target = e.target;
-    activeColor = target.textContent;
-});
-  */
- 
 colorSelector.addEventListener("input", () => {
     activeColor = colorSelector.value;
 })
