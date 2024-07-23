@@ -104,9 +104,17 @@ eraserButton.addEventListener("click", () => {
 });
 
 dumpButton.addEventListener("click", () => {
-    activeColor = colorSelector.value;
-    gridContainer.style.backgroundColor = activeColor;
-} )
+    let promptResponse = prompt("BEWARE: The button you just clicked will set every pixel to the same color as the one you currently have selected. This will overwrite all content on the canvas currently. Type 'yes' to confirm this action.") === 'yes';
+    
+    if (promptResponse) {
+        activeColor = colorSelector.value;
+        const pixelList = document.querySelectorAll(".pixel");
+    
+        pixelList.forEach((pixel) => {
+            pixel.style.backgroundColor = activeColor;
+        }) 
+    }
+});
 
 function randomizerOff() {
     randomizerButton.style.backgroundColor = "#EFEFEF";
