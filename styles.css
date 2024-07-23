@@ -76,9 +76,12 @@ width: 80px;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    row-gap: 10px;
 }
 
 .option-element {
+    display: flex;
+    justify-content: center;
     padding: 25px;
     border-bottom: 1px dotted black;
     width: 100%;
@@ -88,9 +91,4 @@ width: 80px;
 #color-selector {
     width: 90px;
     height: 90px;
-}
-
-#eraser-container  {
-    display: flex;
-    justify-content: center;
 }

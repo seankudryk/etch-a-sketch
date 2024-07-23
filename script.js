@@ -5,6 +5,7 @@ const setGridInput = document.querySelector("#set-grid-input");
 const colorSelector = document.querySelector("#color-selector");
 const randomizerButton = document.querySelector("#randomizer-button");
 const eraserButton = document.querySelector("#eraser-button");
+const dumpButton = document.querySelector("#dump-button");
 
 let activeColor = "black"; //default pixel color, overwritten by user selection in the color input element
 
@@ -53,11 +54,16 @@ gridContainer.addEventListener("mouseover", (e) => {
 
     let target = e.target;
 
-    if (randomizerActive === true) { //if the ranomdizer button is active, then randomize the color of pixels on mouseover
+    if (randomizerActive === true) { //if the randomizer button is active, then randomize the color of pixels on mouseover
         if (pixelArray.indexOf(target) >= 0) {
             target.style.backgroundColor = randomColorGenerator();
         }
-    } else { // default case of setting the background color of pixel to the current active color (set through the color input element)
+    } else if (eraserActive === true) { //if the eraser button is active, then randomize the color of pixels on mouseover
+        if (pixelArray.indexOf(target) >= 0) {
+            target.style.backgroundColor = "white";
+        }
+    } 
+    else { // default case of setting the background color of pixel to the current active color (set through the color input element)
         if (pixelArray.indexOf(target) >= 0) {
             target.style.backgroundColor = activeColor;
         }
@@ -65,6 +71,8 @@ gridContainer.addEventListener("mouseover", (e) => {
 });
 
 colorSelector.addEventListener("input", () => {
+    randomizerOff();
+    eraserOff();
     activeColor = colorSelector.value;
 });
 
@@ -79,21 +87,36 @@ randomizerButton.addEventListener("click", () => {
     if (randomizerActive === false) {
         randomizerButton.style.backgroundColor = "green";
         randomizerActive = true;
+        eraserOff()
     } else {
-        randomizerButton.style.backgroundColor = "#EFEFEF";
-        randomizerActive = false;
+        randomizerOff();
     };
 });
 
 eraserButton.addEventListener("click", () => {
     if (eraserActive === false) {
-        //
+        eraserButton.style.backgroundColor = "green";
         eraserActive = true;
+        randomizerOff();
     } else {
-        //
-        eraserActive = false;
+        eraserOff();
     };
 });
+
+dumpButton.addEventListener("click", () => {
+    activeColor = colorSelector.value;
+    gridContainer.style.backgroundColor = activeColor;
+} )
+
+function randomizerOff() {
+    randomizerButton.style.backgroundColor = "#EFEFEF";
+    randomizerActive = false;
+}
+
+function eraserOff() {
+    eraserButton.style.backgroundColor = "#EFEFEF";
+    eraserActive = false;
+}
 
 setGridInput.focus();
 
