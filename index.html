@@ -8,16 +8,20 @@
         <script src="script.js" defer></script>
     </head>
     <body>
-        <div id="set-grid-container">
-            <input id="set-grid-input"></input>
-            <button id="set-grid-button">Set Grid</button>
-        </div>
-        <div id="color-selector-container">
-            <label for="color-selector">Choose your color:</label>
-            <input type="color" id="color-selector"/>
-        </div>
-        <div id="grid-container">Please enter the dimensions of of your canvas above, then click the "Set Grid" button.
-            <p>For example: a value of "40" will create a grid of 40 pixels x 40 pixels within the canvas size</p>
+        <div id="main-container">
+            <div id="options-container">
+                <div id="set-grid-container">
+                    <input id="set-grid-input"></input>
+                    <button id="set-grid-button">Set Grid</button>
+                </div>
+                <div id="color-selector-container">
+                    <label for="color-selector">Choose your color:</label>
+                    <input type="color" id="color-selector"/>
+                </div>
+            </div>
+            <div id="grid-container">Please enter the dimensions of of your canvas above, then click the "Set Grid" button.
+                <p>For example: a value of "40" will create a grid of 40 pixels x 40 pixels within the canvas size</p>
+            </div>
         </div>
     </body>
 </html>
