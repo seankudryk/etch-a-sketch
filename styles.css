@@ -4,6 +4,15 @@ html {
 
 h1 {
     text-align: center;
+    font-family: sans-serif;
+    font-size: 40px;
+}
+
+button {
+    background-color: white;
+    border-radius: 5px;
+    height: 40px;
+    padding: 0px 30px;
 }
 
 body {
@@ -12,7 +21,7 @@ body {
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    background: linear-gradient( to bottom right, #FDFCFB, #E2D1C3);
+    background-color: rgba(255, 210, 167, 0.433);
     background-repeat: no-repeat;
     margin: 0;
     padding: 0;
@@ -34,6 +43,7 @@ body {
     box-sizing: border-box;
     border: 3px solid black;
     width: 210px;
+    font-family: sans-serif;
 }
 
 #set-grid-container {
@@ -87,7 +97,7 @@ width: 80px;
 .option-element {
     display: flex;
     justify-content: center;
-    padding: 25px;
+    padding: 15px;
     border-bottom: 1px dotted black;
     width: 100%;
     box-sizing: border-box;
