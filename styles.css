@@ -3,7 +3,7 @@ html {
 }
 
 h1 {
-    margin-left: 230px;
+    text-align: center;
 }
 
 body {
@@ -23,9 +23,9 @@ body {
     flex-direction: row;
 }
 
-#options-container {
+#options-container, .info-container {
     display: flex;
-    margin-right: 20px;
+    margin: 0px 20px;
     height: 820px;
     flex-direction: column;
     justify-content: flex-start;
@@ -33,6 +33,7 @@ body {
     background-color: white;
     box-sizing: border-box;
     border: 3px solid black;
+    width: 210px;
 }
 
 #set-grid-container {
@@ -117,4 +118,8 @@ width: 80px;
     display: flex;
     justify-content: center;
     padding: 5px 0px;
+}
+
+#keyboard-explainer-container {
+    align-items: center;
 }

@@ -25,6 +25,7 @@ function createGrid(pixelsPerRow) {
             newPixel.classList.add("pixel");
             newPixel.style.width = `${800 / pixelsPerRow}px`;
             newPixel.style.height = `${800 / pixelsPerRow}px`;
+            newPixel.style.opacity = 1.0;
             gridRow.appendChild(newPixel);
         }
     gridContainer.appendChild(gridRow);
@@ -32,7 +33,7 @@ function createGrid(pixelsPerRow) {
 };
 
 setGridButton.addEventListener("click", () => {
-    const numbersOnly = /[0-9]/;
+    const numbersOnly = /[0-9]/gm; 
     
     if(setGridInput.value > 100) {
         setGridInput.value = "";
@@ -53,14 +54,14 @@ setGridButton.addEventListener("click", () => {
 gridContainer.addEventListener("mouseover", (e) => {
     let pixelArray = document.querySelectorAll(".pixel");
     pixelArray = [...pixelArray];
-
+    
     let target = e.target;
 
-    if (randomizerActive === true) { //if the randomizer button is active, then randomize the color of pixels on mouseover
+    if (randomizerActive) { //if the randomizer button is active, then randomize the color of pixels on mouseover
         if (pixelArray.indexOf(target) >= 0) {
             target.style.backgroundColor = randomColorGenerator();
         }
-    } else if (eraserActive === true) { //if the eraser button is active, then randomize the color of pixels on mouseover
+    } else if (eraserActive) { //if the eraser button is active, then randomize the color of pixels on mouseover
         if (pixelArray.indexOf(target) >= 0) {
             target.style.backgroundColor = "white";
         }
@@ -68,6 +69,15 @@ gridContainer.addEventListener("mouseover", (e) => {
     else { // default case of setting the background color of pixel to the current active color (set through the color input element)
         if (pixelArray.indexOf(target) >= 0) {
             target.style.backgroundColor = activeColor;
+            if (e.ctrlKey) {
+                console.log("The CTRL key is currently being held");
+                target.style.opacity = +target.style.opacity - 0.1;
+            } else if (e.shiftKey) {
+                console.log("The SHIFT key is currently being held");
+                target.style.opacity = +target.style.opacity + 0.1;
+            } else if (e.altKey) {
+                target.style.opacity = 1.0;
+            }
         }
     }
 });
@@ -107,7 +117,7 @@ eraserButton.addEventListener("click", () => {
 });
 
 dumpButton.addEventListener("click", () => {
-    let promptResponse = prompt("BEWARE: The button you just clicked will set every pixel to the same color as the one you currently have selected. This will overwrite all content on the canvas currently. Type 'yes' to confirm this action.") === 'yes';
+    let promptResponse = prompt("WARNING: The button you just clicked will set every pixel to the same color as is currently selected. This will overwrite all content on the canvas currently. Type 'yes' to confirm this action.") === 'yes';
     
     if (promptResponse) {
         activeColor = colorSelector.value;
@@ -134,7 +144,6 @@ saveToPalette.addEventListener("click", () => {
     
     for (let i = paletteColors.length - 1; i > 0; i--) {
         paletteColors[i].style.backgroundColor = paletteColors[i - 1].style.backgroundColor;
-        console.log(paletteColors);
     }
     paletteColors[0].style.backgroundColor = activeColor;   
 })
@@ -142,7 +151,6 @@ saveToPalette.addEventListener("click", () => {
 paletteGrid.addEventListener("click", (e) => {
     let target = e.target;
     activeColor = target.style.backgroundColor;
-    console.log(activeColor);
 
     //the rest of this event listener will handle converting a rgb value into a hexidecimal value
     const numberSlicer = /\d/gm;
@@ -171,7 +179,6 @@ paletteGrid.addEventListener("click", (e) => {
     }
 
     red = red.join('');
-    console.log(red);
     if (red <= 15) {
         red = Number(red).toString(16) + "0";
     } else {
@@ -195,6 +202,8 @@ paletteGrid.addEventListener("click", (e) => {
     colorSelector.value = `#${red}${green}${blue}`;
     activeColor = colorSelector.value;
 });
+
+//add key modifiers where shift increase the opacity by 10%, control reduces it by 10%
 
 setGridInput.focus();
 

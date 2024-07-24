@@ -10,7 +10,7 @@
     <body>
         <h1>Pixel Artist</h1>
         <div id="main-container">
-            <div id="options-container">
+            <div id="options-container" class="info-container">
                 <div id="set-grid-container" class="option-element">
                     <input id="set-grid-input"></input>
                     <button id="set-grid-button">Set Grid</button>
@@ -45,6 +45,12 @@
             </div>
             <div id="grid-container">Please enter the dimensions of of your canvas above, then click the "Set Grid" button.
                 <p>For example: a value of "40" will create a grid of 40 pixels x 40 pixels. The canvas size will not change.</p>
+            </div>
+            <div id="keyboard-explainer-container" class="info-container">
+                <span class="option-element">Use Your Keyboard to Shade Your Creation:</span>
+                <span id="ctrl-key-explainer" class="option-element">Hold CTRL and hover over a pixel to make it's color LIGHTER</span>
+                <span id="shift-key-explainer" class="option-element">Hold SHIFT and hover over a pixel to make it's color DARKER</span>
+                <span id="alt-key-explainer" class="option-element">Hold ALT(Windows) or OPTION(Mac) and hover over a pixel to reset it's darkness to the default value</span>
             </div>
         </div>
     </body>
