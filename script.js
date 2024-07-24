@@ -94,6 +94,14 @@ function randomColorGenerator() {
     let green = Math.round(Math.random() * 255);
     let blue = Math.round(Math.random() * 255);
     return `rgb(${red}, ${green}, ${blue})`;
+
+    /*
+    red = Number(red).toString(16);
+    green = Number(green).toString(16);
+    blue = Number(blue).toString(16);
+    return `#${red}${green}${blue}`;
+    */
+
 }
 
 randomizerButton.addEventListener("click", () => {
@@ -146,18 +154,45 @@ saveToPalette.addEventListener("click", () => {
         paletteColors[i].style.backgroundColor = paletteColors[i - 1].style.backgroundColor;
         console.log(paletteColors);
     }
-
     paletteColors[0].style.backgroundColor = activeColor;   
 })
 
 paletteGrid.addEventListener("click", (e) => {
     let target = e.target;
     activeColor = target.style.backgroundColor;
+    console.log(activeColor);
+
+    //the rest of this event listener will handle converting a rgb value into a hexidecimal value
+    const numberSlicer = /\d/gm;
+    const spaceSlicer = /\s/gm
+    activeColor = activeColor.split("").filter((index) => index.match(numberSlicer) || index.match(spaceSlicer));
+
+    let counter = 0;
+
+    let red = [];
+    let green = [];
+    let blue = [];
+    
+    for (let i = counter; activeColor[i].match(numberSlicer); i++) {
+        red.push(activeColor[i]);
+        counter = i;
+        console.log(counter);
+    }
+
+    for (let i = counter + 2; activeColor[i].match(numberSlicer); i++) {
+        counter = i;
+        green.push(activeColor[i]);
+    }
+
+    for (let i = counter + 2; i < activeColor.length; i++) {
+        console.log(counter);
+        counter = i;
+        blue.push(activeColor[i]);
+    }
+    
+    
     colorSelector.value = activeColor;
 });
-
-console.log(255.)
-
 
 setGridInput.focus();
 
