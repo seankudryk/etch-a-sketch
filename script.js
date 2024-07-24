@@ -78,30 +78,12 @@ colorSelector.addEventListener("input", () => {
     activeColor = colorSelector.value;
 });
 
-/*
-function randomColorGenerator() {
-    let hue = Math.round(Math.random() * 360);
-    let saturation = Math.round(Math.random() * 100);
-    let lightness = Math.round(Math.random() * 100);
-    return `hsl(${hue}, ${saturation}%, ${lightness}%)`;
-}
-*/
-
-//generates a random RGB value every time it is called
 
 function randomColorGenerator() {
     let red = Math.round(Math.random() * 255);
     let green = Math.round(Math.random() * 255);
     let blue = Math.round(Math.random() * 255);
     return `rgb(${red}, ${green}, ${blue})`;
-
-    /*
-    red = Number(red).toString(16);
-    green = Number(green).toString(16);
-    blue = Number(blue).toString(16);
-    return `#${red}${green}${blue}`;
-    */
-
 }
 
 randomizerButton.addEventListener("click", () => {
@@ -172,11 +154,10 @@ paletteGrid.addEventListener("click", (e) => {
     let red = [];
     let green = [];
     let blue = [];
-    
+
     for (let i = counter; activeColor[i].match(numberSlicer); i++) {
         red.push(activeColor[i]);
         counter = i;
-        console.log(counter);
     }
 
     for (let i = counter + 2; activeColor[i].match(numberSlicer); i++) {
@@ -185,13 +166,22 @@ paletteGrid.addEventListener("click", (e) => {
     }
 
     for (let i = counter + 2; i < activeColor.length; i++) {
-        console.log(counter);
         counter = i;
         blue.push(activeColor[i]);
     }
-    
-    
-    colorSelector.value = activeColor;
+
+    red = red.join('');
+    red = Number(red).toString(16);
+
+    green = green.join('');
+    green = Number(green).toString(16);
+
+    blue = blue.join('');
+    blue = Number(blue).toString(16);
+    console.log(red, green, blue);
+
+    colorSelector.value = `#${red}${green}${blue}`;
+    activeColor = colorSelector.value;
 });
 
 setGridInput.focus();
