@@ -78,11 +78,22 @@ colorSelector.addEventListener("input", () => {
     activeColor = colorSelector.value;
 });
 
+/*
 function randomColorGenerator() {
     let hue = Math.round(Math.random() * 360);
     let saturation = Math.round(Math.random() * 100);
     let lightness = Math.round(Math.random() * 100);
     return `hsl(${hue}, ${saturation}%, ${lightness}%)`;
+}
+*/
+
+//generates a random RGB value every time it is called
+
+function randomColorGenerator() {
+    let red = Math.round(Math.random() * 255);
+    let green = Math.round(Math.random() * 255);
+    let blue = Math.round(Math.random() * 255);
+    return `rgb(${red}, ${green}, ${blue})`;
 }
 
 randomizerButton.addEventListener("click", () => {
@@ -142,7 +153,10 @@ saveToPalette.addEventListener("click", () => {
 paletteGrid.addEventListener("click", (e) => {
     let target = e.target;
     activeColor = target.style.backgroundColor;
+    colorSelector.value = activeColor;
 });
+
+console.log(255.)
 
 
 setGridInput.focus();
