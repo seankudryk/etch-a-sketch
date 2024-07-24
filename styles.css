@@ -13,6 +13,12 @@ button {
     border-radius: 5px;
     height: 40px;
     padding: 0px 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100px;
+    font-family: 'sans-serif';
 }
 
 body {
@@ -54,6 +60,11 @@ body {
 
 #set-grid-container input {
 width: 80px;
+font-size: 20px;
+}
+
+#set-grid-input {
+    text-align: center;
 }
 
 #grid-container {
@@ -91,7 +102,6 @@ width: 80px;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    row-gap: 10px;
 }
 
 .option-element {
@@ -124,6 +134,10 @@ width: 80px;
     justify-content: center;
 }
 
+#randomizer-button {
+    width: 100px;
+}
+
 #palette-text {
     display: flex;
     justify-content: center;
@@ -132,4 +146,15 @@ width: 80px;
 
 #keyboard-explainer-container {
     align-items: center;
+}
+
+#palette-save {
+    font-size: 15px;
+    height: 65px;
+}
+
+button:active {
+    background-color: black;
+    color: white;
+    filter: drop-shadow(0px 4px 5px black);
 }

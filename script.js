@@ -98,7 +98,8 @@ function randomColorGenerator() {
 
 randomizerButton.addEventListener("click", () => {
     if (randomizerActive === false) {
-        randomizerButton.style.backgroundColor = "green";
+        randomizerButton.style.backgroundColor = "black";
+        randomizerButton.style.color = "white";
         randomizerActive = true;
         eraserOff()
     } else {
@@ -108,7 +109,8 @@ randomizerButton.addEventListener("click", () => {
 
 eraserButton.addEventListener("click", () => {
     if (eraserActive === false) {
-        eraserButton.style.backgroundColor = "green";
+        eraserButton.style.backgroundColor = "black";
+        eraserButton.style.color = "white";
         eraserActive = true;
         randomizerOff();
     } else {
@@ -130,12 +132,14 @@ dumpButton.addEventListener("click", () => {
 });
 
 function randomizerOff() {
-    randomizerButton.style.backgroundColor = "#EFEFEF";
+    randomizerButton.style.backgroundColor = "white";
+    randomizerButton.style.color = "black";
     randomizerActive = false;
 }
 
 function eraserOff() {
-    eraserButton.style.backgroundColor = "#EFEFEF";
+    eraserButton.style.backgroundColor = "white";
+    eraserButton.style.color = "black";
     eraserActive = false;
 }
 
