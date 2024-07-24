@@ -6,6 +6,8 @@ const colorSelector = document.querySelector("#color-selector");
 const randomizerButton = document.querySelector("#randomizer-button");
 const eraserButton = document.querySelector("#eraser-button");
 const dumpButton = document.querySelector("#dump-button");
+const saveToPalette = document.querySelector("#palette-save");
+const paletteGrid = document.querySelector("#palette-grid");
 
 let activeColor = "black"; //default pixel color, overwritten by user selection in the color input element
 
@@ -125,6 +127,23 @@ function eraserOff() {
     eraserButton.style.backgroundColor = "#EFEFEF";
     eraserActive = false;
 }
+
+saveToPalette.addEventListener("click", () => {
+    let paletteColors = document.querySelectorAll(".palette-color");
+    
+    for (let i = paletteColors.length - 1; i > 0; i--) {
+        paletteColors[i].style.backgroundColor = paletteColors[i - 1].style.backgroundColor;
+        console.log(paletteColors);
+    }
+
+    paletteColors[0].style.backgroundColor = activeColor;   
+})
+
+paletteGrid.addEventListener("click", (e) => {
+    let target = e.target;
+    activeColor = target.style.backgroundColor;
+});
+
 
 setGridInput.focus();
 
