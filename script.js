@@ -171,19 +171,30 @@ paletteGrid.addEventListener("click", (e) => {
     }
 
     red = red.join('');
-    red = Number(red).toString(16);
-
+    console.log(red);
+    if (red <= 15) {
+        red = Number(red).toString(16) + "0";
+    } else {
+        red = Number(red).toString(16);
+    }
+    
     green = green.join('');
-    green = Number(green).toString(16);
+    if (green <= 15) {
+        green = Number(green).toString(16) + "0";
+    } else {
+        green = Number(green).toString(16);
+    }
 
     blue = blue.join('');
-    blue = Number(blue).toString(16);
-    console.log(red, green, blue);
+    if (blue <= 15) {
+        blue = Number(blue).toString(16) + "0";
+    } else {
+        blue = Number(blue).toString(16);
+    }
 
     colorSelector.value = `#${red}${green}${blue}`;
     activeColor = colorSelector.value;
 });
 
 setGridInput.focus();
-
 
