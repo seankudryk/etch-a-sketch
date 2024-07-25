@@ -14,6 +14,7 @@ let activeColor = "black"; //default pixel color, overwritten by user selection 
 let randomizerActive = false; //a boolean switch variable to check the status of the randomizer button
 let eraserActive = false; // same as randomizer, but for the eraser element
 
+setGridInput.focus();
 
 function createGrid(pixelsPerRow) {
     for (let i = 0; i < pixelsPerRow; i++ ) { 
