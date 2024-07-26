@@ -3,14 +3,16 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Etch-a-Sketch</title>
+        <title>Pixel Artist</title>
         <link rel="stylesheet" href="styles.css"/>
         <link rel="stylesheet" href="./fonts/stylesheet.css" type="text/css" charset="utf-8" /> <!--stylesheet for the custom pixel font-->
         <script src="script.js" defer></script>
         
     </head>
     <body>
-        <h1>PIXEL ARTIST</h1>
+        <div id="header-container">
+            <h1>PIXEL ARTIST</h1>
+        </div>
         <div id="main-container">
             <div id="options-container" class="info-container">
                 <div id="set-grid-container" class="option-element">
@@ -46,7 +48,7 @@
                 </div>    
             </div>
             <div id="grid-container">
-                <p>Please enter the dimensions of of your canvas above, then click the "Set Grid" button.</p>
+                <p>Please enter the dimensions of your canvas above, then click the "Set Grid" button.</p>
                 <p>For example: a value of "40" will create a grid of 40 pixels x 40 pixels. The canvas size will not change.</p>
             </div>
             <div id="keyboard-explainer-container" class="info-container">
