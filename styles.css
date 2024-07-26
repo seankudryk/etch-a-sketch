@@ -198,7 +198,6 @@ button:active {
     font-size: 25px;
 }
 
-
-a:visited {
-    color: white;
+a {
+    color: inherit;
 }
